@@ -6,8 +6,10 @@ User = get_user_model()
 
 
 class BaseModel(models.Model):
-    is_published = models.BooleanField(verbose_name='Опубликовано', default=True,
-                                       help_text='Снимите галочку, чтобы скрыть публикацию.'
+    is_published = models.BooleanField(verbose_name='Опубликовано',
+                                       default=True,
+                                       help_text='Снимите галочку, '
+                                                 'чтобы скрыть публикацию.'
                                        )
     created_at = models.DateTimeField(verbose_name='Добавлено', auto_now_add=True)
 
@@ -19,7 +21,8 @@ class Post(BaseModel):
     title = models.CharField('Заголовок', max_length=256)
     text = models.TextField(verbose_name='Текст')
     pub_date = models.DateTimeField(verbose_name='Дата и время публикации',
-                                    help_text='Если установить дату и время в будущем — '
+                                    help_text='Если установить дату и '
+                                              'время в будущем — '
                                               'можно делать отложенные публикации.'
                                     )
     author = models.ForeignKey(
