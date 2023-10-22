@@ -17,6 +17,8 @@ eggs/
 lib/
 lib64/
 parts/
+static/
+static_dev/
 sdist/
 var/
 wheels/
@@ -104,6 +106,7 @@ celerybeat.pid
 # Environments
 .env
 .venv
+.tutorial-env
 env/
 venv/
 ENV/
