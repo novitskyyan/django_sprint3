@@ -3,17 +3,19 @@ from django.utils import timezone
 
 from .models import Post, Category
 
+from . import constants
+
 
 def index(request):
     template = 'blog/index.html'
-    posts = Post.post_objects.all()[:5]
+    posts = Post.published_objects.all()[:constants.MAX_NUMBER_POST]
     context = {'post_list': posts}
     return render(request, template, context)
 
 
 def post_detail(request, post_id):
     template = 'blog/detail.html'
-    post = get_object_or_404(Post.post_objects, id=post_id)
+    post = get_object_or_404(Post.published_objects, id=post_id)
     context = {'post': post}
     return render(request, template, context)
 
